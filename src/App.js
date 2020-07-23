@@ -25,9 +25,11 @@ function App() {
     <Container className="my-4">
       <h1 style={{color: 'white'}} className="mb-3">Github Jobs</h1>
       <SearchForm params={params} onParamChange={handleParamChange} />
+
       <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
+
       { loading && <h1 style={{color:'white'}}>Loading...</h1>}
-      { error && <h1 style={{color:'white'}}>Error. Try Refreshing.</h1>}
+      { error && <h1 style={{color:'white'}}>Error. Please refresh...</h1>}
  
       {jobs.map( job => {
         return <Job key={job.id} job={job} />

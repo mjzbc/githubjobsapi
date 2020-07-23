@@ -1,32 +1,12 @@
 import { useReducer, useEffect } from 'react';
 import axios from 'axios';
+import reducer from './reducer';
+import * as ACTIONS from './actions';
 
-const ACTIONS = {
-    MAKE_REQUEST: 'MAKE_REQUEST',
-    GET_DATA: 'GET_DATA',
-    ERROR: 'ERROR',
-    UPDATE_HAS_NEXT_PAGE: 'UPDATE_HAS_NEXT_PAGE'
-};
-
-const cors_policy = 'https://cors-anywhere.herokuapp.com/';
+//const cors_policy = 'https://cors-anywhere.herokuapp.com/';
 const all_origin = 'https://api.allorigins.win/raw?url=';
 const BASE_URL = all_origin + 'https://jobs.github.com/positions.json';
 
-
-function reducer(state, action) {
-
-    switch (action.type) {
-        case ACTIONS.MAKE_REQUEST: 
-            return { loading: true, jobs: []};
-        case ACTIONS.GET_DATA: 
-            return {...state, loading: false, jobs: action.payload.jobs};
-        case ACTIONS.ERROR: 
-            return {...state, loading: false, error: action.payload.error, jobs: [] };
-        case ACTIONS.UPDATE_HAS_NEXT_PAGE: 
-            return {...state, hasNextPage: action.payload.hasNextPage }
-        default: return state;
-    }
-};
 
 export default function useFetchJobs(params, page) {
 
