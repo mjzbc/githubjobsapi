@@ -1,3 +1,9 @@
+React project, pull jobs using custom react hooks from the Github Jobs API.
+
+Styled using react-bootstrap with pagination and basic search criteria.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
