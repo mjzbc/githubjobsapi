@@ -3,7 +3,7 @@ import * as ACTIONS from './actions';
 function reducer(state, action) {
 
     switch (action.type) {
-        case ACTIONS.MAKE_REQUEST: 
+        case ACTIONS.START_REQUEST: 
             return { loading: true, jobs: []};
         case ACTIONS.GET_DATA: 
             return {...state, loading: false, jobs: action.payload.jobs};

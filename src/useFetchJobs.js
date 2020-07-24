@@ -3,9 +3,9 @@ import axios from 'axios';
 import reducer from './reducer';
 import * as ACTIONS from './actions';
 
-//const cors_policy = 'https://cors-anywhere.herokuapp.com/';
-const all_origin = 'https://api.allorigins.win/raw?url=';
-const BASE_URL = all_origin + 'https://jobs.github.com/positions.json';
+const cors_policy = 'https://cors-anywhere.herokuapp.com/';
+//const all_origin = 'https://api.allorigins.win/raw?url=';
+const BASE_URL = cors_policy + 'https://jobs.github.com/positions.json';
 
 
 export default function useFetchJobs(params, page) {
@@ -16,7 +16,7 @@ export default function useFetchJobs(params, page) {
     useEffect( () => {
         const cancelToken1 = axios.CancelToken.source();
 
-        dispatch( {type: ACTIONS.MAKE_REQUEST});
+        dispatch( {type: ACTIONS.START_REQUEST});
 
         axios.get(BASE_URL, {
             cancelToken: cancelToken1.token,

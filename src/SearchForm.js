@@ -18,7 +18,7 @@ export default function SearchForm({ params, onParamChange }) {
                     <Form.Label style={{color: 'white'}}>Location</Form.Label>
                     <Form.Control
                         onChange={onParamChange} 
-                        value={params.description} 
+                        value={params.location} 
                         name="location" 
                         type="text" />
                 </Form.Group>
